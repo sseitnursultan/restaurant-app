@@ -1,0 +1,934 @@
+.App {
+    width: 100vw;
+    height: 100vh;
+    background-color: #faf9fb;
+    overflow-x: hidden;
+}
+
+.App::-webkit-scrollbar {
+    width: none;
+}
+
+
+.bottomMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background: #d5d5d5;
+    border-radius: 25px 25px 0 0;
+    z-index: 101;
+}
+
+.bottomMenu ul {
+    display: flex;
+}
+
+.bottomMenu ul li {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+
+.bottomMenu ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 500;
+}
+
+.bottomMenu ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.bottomMenu ul li a .icon .MuiSvgIcon-root {
+    font-size: 26px;
+    color: #373848;
+}
+
+.bottomMenu ul li.active a .icon {
+    transform: translateY(-26px);
+}
+
+.bottomMenu ul li.active a .icon .MuiSvgIcon-root {
+    color: #faf9fb;
+    transition: 0.5s;
+}
+
+.indicator {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background: #f8901c;
+    border-radius: 100vw;
+    top: -50%;
+    border: 6px solid #faf9fb;
+    transition: 0.5s;
+}
+
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border-top-right-radius: 18px;
+    box-shadow: 0px -10px 0 0 #faf9fb;
+}
+
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border-top-left-radius: 18px;
+    box-shadow: 0px -10px 0 0 #faf9fb;
+}
+
+.bottomMenu ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(60px * 0));
+}
+
+.bottomMenu ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(60px * 1));
+}
+
+.bottomMenu ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(60px * 2));
+}
+
+.bottomMenu ul li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(60px * 3));
+}
+
+.bottomMenu ul li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(60px * 4));
+}
+
+.bottomMenu ul li:nth-child(6).active ~ .indicator {
+    transform: translateX(calc(60px * 5));
+}
+
+/*Main section*/
+main {
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+
+.mainContainer {
+    width: 100%;
+    height: auto;
+    background: #faf9fb;
+    padding: 10px;
+    padding-bottom: 100px;
+}
+
+.banner {
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    background: url("./assets/banner.png") no-repeat center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.deliveryPic {
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    width: 240px;
+    height: 200px;
+}
+
+.bannerContent {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.bannerContent h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2a2b3c;
+}
+
+.bannerContent p {
+    font-size: 14px;
+    width: 190px;
+    color: #989594;
+    margin: 5px 0;
+}
+
+.bannerContent p span {
+    color: #f8901c;
+    font-weight: 600;
+}
+
+.bannerContent a {
+    background: #f8901c;
+    padding: 5px 15px;
+    border-radius: 100vw;
+    color: #faf9fb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.bannerContent a:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+
+/*DIsh container*/
+
+.dishContainer {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.menuCard {
+    width: 100%;
+}
+
+.subMenuContainer, .viewAll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subMenuContainer h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2a2b3c;
+}
+
+.subMenuContainer .viewAll p {
+    font-size: 12px;
+    color: #f8901c;
+    font-weight: 400;
+}
+
+.subMenuContainer .viewAll i {
+    background: #f8901c;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.subMenuContainer .viewAll i MuiSvgIcon-root {
+    font-size: 16px;
+    color: #faf9fb;
+}
+
+.rowContainer {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.rowContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.rowMenuCard {
+    width: 80px;
+    min-width: 80px;
+    height: 100px;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.rowMenuCard:hover,
+.rowMenuCard .active {
+    background: #f8901c;
+}
+
+.rowMenuCard .imgBox {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 100vw;
+    padding: 2px;
+    background: #f8901c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    overflow: hidden;
+    margin-right: 12px;
+}
+
+.rowMenuCard:hover .imgBox,
+.rowMenuCard.active.imgBox {
+    background: #fff;
+}
+
+
+.rowMenuCard .imgBox img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.rowMenuCard:hover .imgBox img,
+.rowMenuCard .active .imgBox img {
+    width: 80%;
+    height: 80%;
+    transition: 0.5s;
+}
+
+.rowMenuCard h3 {
+    color: #f8901c;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.rowMenuCard:hover h3,
+.rowMenuCard .active h3 {
+    color: #fff;
+}
+
+
+.rowMenuCard .loadMenu {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #f8901c;
+    transition: 0.5s;
+}
+
+.rowMenuCard:hover .loadMenu,
+.rowMenuCard.active.loadMenu {
+    background: #fff;
+}
+
+.rowMenuCard .loadMenu .MuiSvgIcon-root {
+    font-size: 18px;
+    color: #faf9fb;
+}
+
+.rowMenuCard:hover .loadMenu .MuiSvgIcon-root,
+.rowMenuCard.active.loadMenu .MuiSvgIcon-root {
+    color: #f8901c;
+}
+
+.dishItemContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ItemCard {
+    width: 160px;
+    height: 180px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.isFavorite {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    transition: 0.5s;
+}
+
+.isFavorite .MuiSvgIcon-root {
+    font-size: 18px;
+    color: #ff000088;
+}
+
+.isFavorite.active .MuiSvgIcon-root {
+    color: #ff0000;
+    filter: drop-shadow(0px 0px 8px #ff0000);
+}
+
+.ItemCard .imgBox {
+    width: 100px;
+    height: 100px;
+    border-radius: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: absolute;
+    top: -10px;
+}
+
+.ItemCard .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.itemImg {
+    position: absolute;
+    top: 0;
+    width: 60%;
+}
+
+.itemContent {
+    background: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 10px;
+    padding-top: 50px;
+    width: 100%;
+}
+
+.itemContent .itemName {
+    font-size: 16px;
+}
+
+.itemContent .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemContent .bottom .rating .MuiSvgIcon-root {
+    font-size: 16px;
+}
+
+.orange {
+    color: #f8901c !important;
+}
+
+.gray {
+    color: #373848 !important;
+}
+
+.itemContent .bottom .price {
+    font-size: 16px;
+}
+
+.itemContent .bottom .price span {
+    color: #f8901c;
+    font-size: 12px;
+}
+
+.itemContent .addToCard {
+    background: #f8901c;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.itemContent .addToCard .MuiSvgIcon-root {
+    color: #faf9fb;
+    font-size: 16px;
+}
+
+
+.rightMenu {
+    width: 350px;
+    height: calc(100% - 55px);
+    background: #fff;
+    position: fixed;
+    right: 0;
+    top: 55px;
+    z-index: 105;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    transform: translateX(200%);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rightMenu.act
+{
+    transform: translateX(0%);
+}
+
+.debitCardContainer {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.debitCard {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    min-width: 300px;
+    min-height: 170px;
+    border-radius: 15px;
+}
+
+.debitCard::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8901c;
+    transform: rotate(5deg);
+    border-radius: 15px;
+    filter: blur(2px);
+    z-index: -2;
+}
+
+.debitCard::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(35deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+}
+
+.cardGroup {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.cardLogo, .cardChip, .cardNumber, .cardName ,.cardFrom, .cardTo, .cardRing {
+    position: absolute;
+
+}
+
+.cardLogo{
+    width: 60px;
+    top:30px;
+    right: 30px;
+    height: auto;
+}
+
+.cardChip {
+    width: 40px;
+    height: auto;
+    top: 50px;
+    left: 30px;
+}
+
+.cardNumber , .cardFrom , .cardTo , .cardName{
+    color:#fff;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.cardNumber{
+    left: 30px;
+    bottom: 60px;
+}
+
+.cardName{
+    font-size: 12px;
+    bottom: 30px;
+    left:30px;
+}
+
+.cardFrom{
+    font-size: 12px;
+    bottom: 30px;
+    right: 90px;
+}
+
+.cardTo{
+    bottom: 30px;
+    right: 30px;
+    font-size: 12px;
+}
+
+.cardRing{
+    height: 400px;
+    width: 400px;
+    border-radius: 100vw;
+    background: transparent;
+    border: 50px solid rgba(0,0,0,0.1);
+    top:-250px;
+    right: -250px;
+    box-sizing: border-box;
+}
+
+.cardRing::after{
+    position: absolute;
+    content:'';
+    height: 500px;
+    width: 500px;
+    border-radius: 100vw;
+    background: transparent;
+    border: 50px solid rgba(0,0,0,0.1);
+    top:185px;
+    right: -155px;
+    box-sizing: border-box;
+}
+
+.cardCheckOutContainer{
+    width: 100%;
+    min-width: 320px;
+}
+
+.cartContainer{
+    width: 100%;
+    min-height: 200px;
+    max-height: 280px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    overflow-x:hidden ;
+}
+
+.cartContainer::-webkit-scrollbar{
+    display: none;
+}
+
+.cardItem{
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.cardItem .imgBox{
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+    min-height: 60px;
+    background: #00ffc855;
+    border-radius: 10px;
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.cardItem .imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cardItem .itemSection{
+    margin-left: 10px;
+}
+
+.cardItem .itemSection .itemName {
+    font-size: 16px;
+    color: #2a2b3c;
+}
+
+.cardItem .itemSection .itemQuantity{
+    font-size: 16px;
+    color: #2a2b3c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.cardItem .itemSection .itemQuantity span {
+    color:#f8901c;
+}
+
+.cardItem .itemSection .itemQuantity .quantity{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 60px;
+}
+
+.cardItem .itemSection .itemQuantity .quantity .itemRemove,
+.cardItem .itemSection .itemQuantity .quantity .itemAdd{
+    color: #2a2b3c;
+    font-size: 24px;
+}
+
+.cardItem .itemPrice{
+    font-size: 16px;
+    font-weight: 600;
+    color:#2a2b3c;
+    margin-left: auto;
+}
+
+.cardItem .itemPrice .dollarSign{
+    font-size: 12px;
+    color: #f8901c;
+}
+
+.cardItem .itemPrice .itemPriceValue{
+    font-size: 16px;
+    color:#373848;
+}
+
+.totalSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    margin: 15px 0px;
+}
+
+.totalSection h3{
+    font-size: 18px;
+    font-weight: 600;
+    color:#2a2b3c;
+}
+
+.totalSection p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2a2b3c;
+}
+
+.totalSection p span {
+    font-size: 14px;
+    color: #f8901c;
+}
+
+.checkOut{
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 10px 20px;
+    background: #f8901c;
+    border-radius: 100vw;
+    color: #faf9fb;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    height: 60px;
+    background: #fff;
+    width:100%;
+    position:fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    min-width: 40px;
+    width: 60px;
+}
+
+.inputBox {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 8px 15px;
+    width: 120px;
+    margin-left: 20px;
+
+}
+
+.searchIcon {
+    color: #787a84;
+    font-size: 20px;
+
+}
+
+.inputBox input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #787a84;
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.shoppingCart {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.cart {
+    font-size: 20px;
+    color: #373848;
+}
+
+.cartContent {
+    width: 20px;
+    height: 20px;
+    background: #f8901c;
+    border-radius: 100%;
+    min-width: 20px;
+    min-height: 20px;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cartContent p {
+    font-weight: 500;
+    color: #faf9fb;
+}
+
+.userName {
+    font-size: 16px;
+    margin-left: 8px;
+    font-weight: 500;
+    display: none;
+}
+
+.profileContainer {
+    display: flex;
+    align-items: center;
+}
+
+.imageBox {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 100vw;
+}
+
+.toggleMenu{
+    transform: rotate(90deg);
+}
+.toggleIcon{
+    color: #373848;
+}
+
+@media screen and (min-width: 650px) {
+    .rowContainer{
+        justify-content: space-between;
+    }
+    .inputBox{
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .toggleMenu{
+        display: none;
+    }
+    .profileContainer .userName{
+        display: block;
+    }
+    .bottomMenu{
+        left: 21%;
+        width: 40%;
+
+    }
+
+    .mainContainer{
+        width: calc(100% - 350px);
+        padding: 10px 30px 100px 30px;
+    }
+
+    .banner{
+        height: 160px;
+    }
+
+    .deliveryPic{
+        width: 278px;
+    }
+    .bannerContent h3{
+        font-size: 43px;
+    }
+    .bannerContent p{
+        font-size: 15px;
+        margin:12px 0;
+        width: unset;
+    }
+
+    .bannerContent a {
+        font-size: 16px;
+    }
+
+    main{
+        display: flex;
+    }
+
+    .rightMenu {
+        position: fixed;
+        z-index: 1;
+        transform: translateX(0%);
+        top: unset;
+        padding: 20px 15px;
+    }
+
+    .ItemCard{
+        width: 180px;
+        height: 200px;
+    }
+    
+}
+
+
